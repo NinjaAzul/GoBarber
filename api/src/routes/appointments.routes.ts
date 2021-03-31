@@ -1,34 +1,32 @@
-// startOfHour = 00:00:00 | parseISO = String for Object Date
-
 // Imports
 import { Router } from 'express';
-import { startOfHour, parseISO, isEqual } from 'date-fns';
+import { startOfHour, parseISO } from 'date-fns';
 
 // Models
 import Appointment from '../models/Appointment';
+// Repository
+import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 const appointmentsRouter = Router();
-
-const appointments: Appointment[] = [];
+const appointmentsRepository = new AppointmentsRepository();
 
 // Create
 appointmentsRouter.post('/', (request, response) => {
   const { provider, date } = request.body;
 
   const parsedDate = startOfHour(parseISO(date));
-  const findAppointmentsInSameDate = appointments.find(appointment =>
-    isEqual(parsedDate, appointment.date),
+
+  const findAppointmentInSameDate = appointmentsRepository.findByDate(
+    parsedDate,
   );
 
-  if (findAppointmentsInSameDate) {
+  if (findAppointmentInSameDate) {
     return response
       .status(400)
       .json({ message: 'This appointment is already booked' });
   }
 
-  const appointment = new Appointment(provider, parsedDate);
-
-  appointments.push(appointment);
+  const appointment = appointmentsRepository.create(provider, parsedDate);
 
   response.json(appointment);
 });
