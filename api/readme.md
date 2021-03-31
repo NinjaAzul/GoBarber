@@ -34,9 +34,6 @@
 ```launch.json
 
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
@@ -68,7 +65,7 @@ configure no Package.Json
 ### TS
 TS = https://www.notion.so/Typescript-5712aeab312d44fcba0aa88895caad36#3525e06eb6a04fa79f51512fcf97cf44
 
-### # Ferramentas para padronização de código
+###  Ferramentas para padronização de código
 
 EditorConfig = https://www.notion.so/EditorConfig-5f494ae4b47248c1b16681ff74d6766c
 
