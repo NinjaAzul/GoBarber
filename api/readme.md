@@ -7,7 +7,7 @@
 - [x] yarn tsc --init || TS config
 
 #### TS Config
-```tsconfig.json
+```json
 
  "outDir": "./dist",
  "rootDir": "./src",
@@ -24,7 +24,7 @@
 
 - [x] yarn add ts-node-dev -D || Restart Server same Nodemon and Build app same tsc.
 
-```package.json
+```json
 
  "scripts": {
     "build": "tsc",
@@ -36,7 +36,7 @@
 
 # Configurando Debbug
 
-```launch.json
+```json
 
 {
   "version": "0.2.0",
@@ -63,6 +63,35 @@ configure no Package.Json
 
 ```
 
+# Configurando TypeOrm and BD - (POSTGRES)
+
+- [x] yarn add typeorm
+- [x] yarn add pg (DriverDB look at docs TypeORM)
+- [x] yarn add reflect-metadata
+
+```json
+Create: ormconfig.json
+
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "gostack_gobarber",
+  "entities":[
+    "./src/models/*.ts"
+  ],
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}
+
+
+```
 
 
 # Docs
