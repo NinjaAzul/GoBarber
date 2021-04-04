@@ -12,6 +12,11 @@
  "outDir": "./dist",
  "rootDir": "./src",
 
+   "experimentalDecorators": true,
+     "emitDecoratorMetadata": true,
+
+     "strictPropertyInitialization": false,
+
 ```
 
 
